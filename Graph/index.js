@@ -1,9 +1,12 @@
+import LinkedList from '../LinkedList'
+import Draw from '../Draw'
+
 export class graph {
   constructor (ver) {
     this.vertices = ver
     this.aList = {}
     this.vertices.forEach(ver => {
-      this.aList[ver] = new ll()
+      this.aList[ver] = new LinkedList()
     })
   }
 
@@ -17,7 +20,7 @@ export class graph {
       return 'Already exists'
     }
 
-    this.aList[vertices] = new ll()
+    this.aList[vertices] = new LinkedList()
   }
 
   drawGraph () {
@@ -28,7 +31,7 @@ export class graph {
       let top = Math.floor(Math.random() * 10) + 2
       let pos = Math.floor(Math.random() * 100) + 50
       var item = position[Math.floor(Math.random() * position.length)]
-      let drawc = new draw()
+      let drawc = new Draw()
       drawc.addCircle({ top: prevTop + top, [item]: prevPos + pos }, key)
       prevTop = prevTop + top + 20
       prevPos = prevPos + pos + 200
@@ -49,7 +52,7 @@ export class graph {
 
         x2 = node2.offsetLeft
         y2 = node2.offsetTop
-        let drawl = new draw()
+        let drawl = new Draw()
         drawl.addLine({ x1, x2, y1, y2 }, 'svg' + pointer.value + key)
         drawl.addArrow({ x1, x2, y1, y2 })
         pointer = pointer.next
